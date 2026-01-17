@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+* {
+    font-family: "Lora", serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: custom styles */
+body {
+  @apply bg-white text-gray-900;
+}
+
+/* Remove any empty url background classes! */
+
+/* Arrow color */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #78C841 !important;
+}
+
+/* Arrow icon small size */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 10px !important;  
+  color: #78C841 !important;
+}
+
+/* Custom Toast Gradient */
+.Toastify__toast--custom {
+  background: linear-gradient(to right, #4ade80, #3b82f6) !important; /* from-green-400 to-blue-500 */
+  color: white !important;
+  border-radius: 8px !important;
+}
+
+/* Make the progress bar white so it looks clean against the gradient */
+.Toastify__progress-bar--custom {
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Ensure the icons are white */
+.Toastify__toast--custom svg {
+  fill: white !important;
+}
