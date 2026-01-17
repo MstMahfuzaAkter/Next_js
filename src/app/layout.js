@@ -1,11 +1,7 @@
+// app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Ensure this is imported
-import AuthProvider from "@/context/AuthProvider";
+import ClientLayout from "./ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,29 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AuthProvider>
-          <Navbar />
-          <main className="min-h-screen">
-             {children}
-          </main>
-          <Footer />
-          
-          {/* Custom Styled ToastContainer */}
-          <ToastContainer 
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-            toastClassName="custom-toast-gradient"
-            progressClassName="custom-progress-bar"
-          />
-        </AuthProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
